@@ -1,0 +1,255 @@
+// Scss Document
+
+$bp1: 520px;
+$bp2: 768px;
+$bp3: 1280px;
+$bp4: 640px;
+$bp5: 1440px;
+$bp6: 1280px;
+
+$maxWidth1: 1260px;
+$maxWidth2: 1100px;
+$maxWidth3: 900px;
+
+$baseSpace: 10px;
+
+$buttonHeight_sp: 40px;
+$buttonHeight: 40px;
+
+$formPartHeight: 48px;
+$formPartPaddingRow: 10px;
+$formPartPaddingColumn: 18px;
+$formLabelColor: var(--textColor);
+$formConfirmLabelColor: var(--colorGray);
+$formBorderColor: var(--baseBorderColor);
+$formBorder: 1px;
+$formBgColor: #FFF;
+$formRadius: 5px;
+
+$font: "Montserrat", "Noto Sans JP", sans-serif;
+$fontb: "Montserrat", "Noto Sans JP", sans-serif;
+$eng: "Montserrat", "Noto Sans JP", sans-serif;
+$mincho: 'Times', 'Noto Serif JP', serif;
+$deco:"source-han-sans-japanese", sans-serif;
+$deco2:"helvetica-neue-lt-pro-cond", sans-serif;
+
+$animation_duration: 0.33s;
+
+$easeOutBack: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+$radius: 30px;
+
+$fontSize_sp: 16px;
+$fontsize_not_sp: 16px;
+$fontsize_medium: 16px;
+$fontsize_tablet: 16px;
+$fontsize_pc: 16px;
+$fontsize_widePc: 16px;
+
+$primaryColor: #204410;
+$secondaryColor: #6CB149;
+$tertiaryColor: #5DB286;
+
+$gradientStartColor: #2E3092;
+$gradientEndColor: #B5C5D6;
+$gradientAngle: 90deg;
+
+$headHeight_sp: 64px;
+$headHeight_tablet: 80px;
+$headHeight: 80px;
+
+$footHeight_sp: auto;
+$footHeight_tablet: auto;
+$footHeight: auto;
+
+$subContentsWidth_sp: 100%;
+$subContentsWidth_tablet: 390px;
+$subContentsWidth: 390px;
+
+$facebookColor: #1877F2;
+$lineColor: #06c755;
+$twitterColor: #00acee;
+$xColor: #000000;
+
+@mixin gradient {
+	background: linear-gradient(var(--gradientAngle), var(--gradientStartColor), var(--gradientEndColor));
+}
+
+@mixin nw {
+	font-family: $font;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+}
+
+@mixin lw {
+	font-family: $font;
+	font-optical-sizing: auto;
+	font-weight: 200;
+	font-style: normal;
+}
+
+@mixin bw {
+	font-family: $fontb;
+	font-optical-sizing: auto;
+	font-weight: 800;
+	font-style: normal;
+}
+
+@mixin sbw {
+	font-family: $fontb;
+	font-optical-sizing: auto;
+	font-weight: 600;
+	font-style: normal;
+}
+
+@mixin eng {
+	font-family: $eng;
+}
+
+@mixin mincho {
+	font-family: $mincho;
+}
+
+@mixin deco{
+	font-family: $deco;
+	font-weight: 400;
+	font-style: normal;
+}
+
+@mixin decobw{
+	font-family: $deco;
+	font-weight: 700;
+	font-style: normal;
+}
+
+@mixin helvetica{
+	font-family:$deco2;
+	font-weight: 700;
+	font-style: normal;
+}
+
+@mixin fixed_center {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+@mixin vertical {
+	-ms-writing-mode: tb-rl;
+	writing-mode: vertical-rl;
+
+	.combine {
+		-webkit-text-combine: horizontal;
+		-ms-text-combine-horizontal: all;
+		text-combine-upright: all;
+	}
+}
+
+@mixin alpha($k: 50) {
+	opacity: ($k/100);
+	filter: Alpha(opacity=$k);
+}
+
+@mixin arrowbase($d: "down") {
+	@if $d=="down" {
+		clip-path: polygon(0 0, 100% 0, 50% 100%);
+	}
+
+	@else if $d=="up" {
+		clip-path: polygon(50% 0, 100% 100%, 0 100%);
+	}
+
+	@else if $d=="left" {
+		clip-path: polygon(0 50%, 100% 0, 100% 100%);
+	}
+
+	@else if $d=="right" {
+		clip-path: polygon(0 0, 100% 50%, 0 100%);
+	}
+}
+
+@mixin title_with_arrow($color) {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	grid-gap: var(--space2);
+
+	&::after {
+		content: "";
+		display: inline-block;
+		width: 12px;
+		height: 12px;
+		transform: rotate(45deg);
+		border-style: solid;
+		border-width: 1px;
+		border-color: $color $color transparent transparent;
+	}
+}
+
+@mixin media_query($k) {
+	@if $k ==sp {
+		@media (max-width:$bp1) {
+			@content;
+		}
+	}
+
+	@else if $k ==not_sp {
+		@media (min-width:($bp1 + 1)) {
+			@content;
+		}
+	}
+
+	@else if $k ==medium {
+		@media (min-width:$bp4) {
+			@content;
+		}
+	}
+
+	@else if $k ==device {
+		@media (min-width:$bp2) {
+			@content;
+		}
+	}
+
+	@else if $k ==not_device {
+		@media (max-width:($bp2 - 1)) {
+			@content;
+		}
+	}
+
+	@else if $k ==pc {
+		@media (min-width:$bp3) {
+			@content;
+		}
+	}
+
+	@else if $k ==not_pc {
+		@media (max-width:($bp3 - 1)) {
+			@content;
+		}
+	}
+
+	@else if $k ==miniwin {
+
+		@media (max-width:$bp5) and (max-resolution: 1.8dppx),
+		(-webkit-max-device-pixel-ratio:1.8) {
+			@content;
+		}
+	}
+
+	@else if $k ==wide {
+		@media (min-width:$bp6) {
+			@content;
+		}
+	}
+
+	@else if $k ==not_wide {
+		@media (max-width:($bp6 - 1)) {
+			@content;
+		}
+	}
+}

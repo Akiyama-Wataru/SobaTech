@@ -1,0 +1,384 @@
+// Scss Document
+
+@import "setting.scss";
+
+.form_part {
+    --labelColor: var(--formLabelColor);
+    --borderColor: var(--formBorderColor);
+    --bgColor: var(--formBgColor);
+    --borderWidth: var(--formBorder);
+    --partsRadius: var(--formRadius);
+    --h: var(--formPartHeight);
+    --topPadding: var(--formPartPaddingRow);
+    --bottomPadding: var(--formPartPaddingRow);
+    --leftPadding: var(--formPartPaddingColumn);
+    --rightPadding: var(--formPartPaddingColumn);
+    --formPartTextColor: var(--formTextColor);
+    display: flex;
+    flex-direction: column;
+    grid-gap: var(--space1);
+    margin-bottom: var(--space3);
+    width: 100%;
+
+    .label {
+        color: var(--labelColor);
+    }
+}
+
+.require {
+    &::before {
+        content: "*";
+        color: #C53027;
+    }
+}
+
+.input_wrap,
+.select_wrap,
+.textarea_wrap {
+    position: relative;
+}
+
+input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=submit]):not([type=button]),
+select,
+textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    display: block;
+    border: var(--borderWidth) solid var(--borderColor);
+    background: var(--bgColor);
+    border-radius: var(--partsRadius);
+    padding: var(--topPadding) var(--rightPadding) var(--bottomPadding) var(--leftPadding);
+    height: var(--h);
+    width: 100%;
+    box-sizing: border-box;
+    font-size: var(--fontSize);
+    color: var(--formPartTextColor);
+
+    &::placeholder {
+        color: var(--tertiaryColor);
+    }
+}
+
+select {
+    &.empty {
+        color: var(--tertiaryColor);
+    }
+}
+
+.select_wrap {
+    --rightPadding: calc(var(--formPartPaddingColumn) + var(--space2));
+
+    &::after {
+        width: 8px;
+        height: 6px;
+        background: var(--primaryColor);
+        @include arrowbase();
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: calc(var(--formPartPaddingColumn) + (var(--space2) - 8px) / 2);
+        margin: auto;
+        pointer-events: none;
+    }
+}
+
+textarea {
+    @include nw;
+    height: auto;
+}
+
+label {
+    position: relative;
+    cursor: pointer;
+    --crHeight: calc(var(--h) * 2 / 5);
+    --bgColor: #FFF;
+    --borderColor: var(--secondaryColor);
+
+    input {
+
+        &[type=checkbox],
+        &[type=radio] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            @include alpha(0);
+
+            +.txt,
+            +.wpcf7-list-item-label,
+            +.mwform-radio-field-text,
+            +.mwform-checkbox-field-text {
+                position: relative;
+                display: flex;
+                width: fit-content;
+                grid-gap: var(--space1);
+                align-items: center;
+                flex-wrap: wrap;
+
+                &::before {
+                    width: var(--crHeight);
+                    height: var(--crHeight);
+                    content: "";
+                    border: var(--borderWidth) solid var(--borderColor);
+                    background: var(--bgColor);
+                    box-sizing: border-box;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    transition: var(-animationDuration) opacity;
+                }
+            }
+
+            &:not(:checked) {
+
+                +.txt,
+                +.wpcf7-list-item-label,
+                +.mwform-radio-field-text,
+                +.mwform-checkbox-field-text {
+                    &::after {
+                        @include alpha(0);
+                    }
+                }
+            }
+        }
+
+        &[type=checkbox] {
+
+            +.txt,
+            +.wpcf7-list-item-label,
+            +.mwform-checkbox-field-text {
+                &::after {
+                    width: 10px;
+                    height: 7px;
+                    border-width: 3px;
+                    border-style: solid;
+                    border-color: transparent transparent var(--primaryColor) var(--primaryColor);
+                    transform: translateY(-3px) rotate(-45deg);
+                    left: 3px;
+                }
+            }
+        }
+
+        &[type=radio] {
+
+            +.txt,
+            +.wpcf7-list-item-label,
+            +.mwform-radio-field-text {
+                &::before {
+                    border-radius: 50%;
+                }
+
+                &::after {
+                    width: calc(var(--crHeight) - 3px * 2);
+                    height: calc(var(--crHeight) - 3px * 2);
+                    border-radius: 50%;
+                    box-sizing: border-box;
+                    left: 4px;
+                    background: var(--primaryColor);
+                }
+            }
+        }
+    }
+}
+
+.mw_wp_form_confirm,
+.form_wrap_confirm {
+    .form_part {
+        --borderColor: transparent;
+        --borderWidth: 0px;
+        --bgColor: none;
+        --topPadding: 0px;
+        --bottomPadding: 0px;
+        --leftPadding: 0px;
+        --rightPadding: 0px;
+
+        &:not(.for_agree) {
+            .cont {
+                border-bottom: 1px solid var(--baseBorderColor);
+                padding-bottom: var(--space1);
+            }
+        }
+
+        &.for_agree {
+            display: none;
+        }
+
+        .select_wrap {
+            --rightPadding: var(--formPartPaddingColumn);
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    .for_input {
+        display: none !important;
+    }
+}
+
+.mw_wp_form_input,
+.form_wrap_input {
+    .for_confirm {
+        display: none !important;
+    }
+}
+
+.search_wrap {
+    position: relative;
+
+    >input {
+        padding-right: calc(var(--formPartHeight) / 2 + var(--rightPadding)) !important;
+    }
+
+    >button {
+        left: auto;
+        width: calc(var(--formPartHeight) / 2);
+        height: calc(var(--formPartHeight) / 2);
+        right: 10px;
+        border: 0;
+        background: none;
+
+        .icon {
+            display: block;
+            background-image: url("../images/icon/search.svg");
+            background-size: contain;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.wpcf7-form-control-wrap {
+    width: 100%;
+}
+
+.form_part {
+    &.for_agree {
+        .wpcf7-form-control-wrap {
+            width: auto;
+
+            .wpcf7-list-item {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.to_link{
+	> p{
+		width:100%;
+	}
+	.wpcf7-form-control{
+		height:var(--toLinkHeight);
+		background:var(--toLinkBackground);
+		border:var(--toLinkBorder) solid var(--toLinkBorderColor);
+		color:var(--toLinkColor);
+		padding: calc(var(--space1) / 2) var(--space1);
+		border-radius: var(--radius);
+		font-size:var(--fontSize_n);
+		cursor:pointer;
+		transition:var(--animationDuration) background, var(--animationDuration) color;
+		@include bw;
+		&:hover{
+			background:var(--toLinkHoverBackground);
+			color:var(--toLinkHoverColor);
+		}
+	}
+	&.to_link_gigant{
+		.wpcf7-form-control{
+			width:100%;
+			max-width:480px;
+		}
+	}
+}
+
+.mwform-checkbox-field {
+    margin-right: var(--space2);
+
+    +.mwform-checkbox-field {
+        margin-left: 0 !important;
+    }
+}
+
+.form_wrap {
+	max-width:620px;
+    .to_link {
+        flex-direction: column;
+		align-items: flex-start;
+		margin-top:var(--space5);
+		.a{
+			&.confirm,
+			&.send,
+			&.submit{
+				width:100%;
+				max-width:480px;
+			}
+		}
+    }
+}
+
+.flex_line {
+    display: flex;
+    grid-gap: var(--space1);
+    flex-wrap: wrap;
+    align-items: center;
+
+    >p {
+        display: none;
+    }
+
+    >.label {
+        font-size: 0.86rem;
+        width: 100%;
+    }
+}
+
+.w25p {
+    width: 25%;
+}
+
+.w50p {
+    width: 50%;
+}
+
+.mwform-tel-field {
+    display: flex;
+    flex-direction: row;
+    grid-gap: var(--space1) 5px;
+    align-items: center;
+    flex-wrap: wrap;
+
+    input {
+        &[type=text] {
+            width: 90px !important;
+        }
+
+    }
+}
+
+.privacy_text{
+	box-sizing: border-box;
+	border:1px solid var(--baseBorderColor);
+	background:#FFF;
+	height:240px;
+	.inner{
+		width:100%;
+		height:100%;
+		overflow-x:hidden;
+		overflow-y: auto;
+		box-sizing: border-box;
+		padding:var(--space3) var(--space2);
+	}
+}
