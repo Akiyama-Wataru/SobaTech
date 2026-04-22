@@ -108,7 +108,7 @@ body:not(.scrolled) #head .logo_wrap .logo {
         flex-direction: column;
         grid-gap: var(--space2);
         width: 100%;
-        max-width: 540px; }
+        max-width: 600px; }
         #mv .inner .schedule_wrap .info .day_wrap {
           display: flex;
           flex-direction: column;
@@ -119,11 +119,56 @@ body:not(.scrolled) #head .logo_wrap .logo {
             justify-content: center;
             flex-direction: column; }
           #mv .inner .schedule_wrap .info .day_wrap .theme {
-            font-size: var(--fontSize_ll);
+            font-size: 1.75rem;
+            line-height: 1.05;
+            letter-spacing: 0.02em;
             font-family: "Montserrat", "Noto Sans JP", sans-serif;
             font-optical-sizing: auto;
             font-weight: 800;
             font-style: normal; }
+          #mv .inner .schedule_wrap .info .day_wrap .place {
+            font-size: clamp(11px, 3.5vw, 20px);
+            font-weight: 500; }
+          #mv .inner .schedule_wrap .info .day_wrap .place .place_cards {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            width: 100%;
+            margin-top: 8px; }
+          #mv .inner .schedule_wrap .info .day_wrap .place .place_card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+            min-height: 36px;
+            padding: 4px 14px;
+            background: rgba(108, 177, 73, 0.12);
+            border: 1px solid rgba(32, 68, 16, 0.4);
+            border-radius: 6px;
+            color: var(--primaryColor);
+            font-size: var(--fontSize_s);
+            line-height: 1.3;
+            cursor: pointer;
+            transition: 0.2s background, 0.2s color, 0.2s border-color; }
+            #mv .inner .schedule_wrap .info .day_wrap .place .place_card .place_card_text {
+              flex: 1 1 auto;
+              padding-right: 12px; }
+            #mv .inner .schedule_wrap .info .day_wrap .place .place_card .place_card_arrow {
+              flex-shrink: 0;
+              width: 8px;
+              height: 8px;
+              border-top: 2px solid var(--primaryColor);
+              border-right: 2px solid var(--primaryColor);
+              transform: rotate(45deg);
+              transition: 0.2s transform, 0.2s border-color; }
+          @media (hover: hover) {
+            #mv .inner .schedule_wrap .info .day_wrap .place .place_card:hover {
+              background: var(--primaryColor);
+              border-color: var(--primaryColor);
+              color: #FFF; }
+              #mv .inner .schedule_wrap .info .day_wrap .place .place_card:hover .place_card_arrow {
+                border-color: #FFF;
+                transform: rotate(45deg) translate(1px, -1px); } }
   #mv .scroll_down {
     mix-blend-mode: normal;
     --barHeight:120px; }
@@ -153,8 +198,8 @@ body:not(.scrolled) #head .logo_wrap .logo {
         padding-top: var(--space5); }
         #mv .inner .schedule_wrap .info .day_wrap {
           line-height: normal; }
-          #mv .inner .schedule_wrap .info .day_wrap .place {
-            font-size: var(--fontSize_ss); }
+          #mv .inner .schedule_wrap .info .day_wrap .theme {
+            font-size: 1.5rem; }
           #mv .inner .schedule_wrap .info .day_wrap .day_num {
             max-width: 100px !important; } }
   @media (min-width: 521px) {
@@ -173,19 +218,22 @@ body:not(.scrolled) #head .logo_wrap .logo {
         padding: var(--space3); }
         #mv .inner .schedule_wrap .info .day_wrap {
           display: grid;
-          grid-template-columns: 20% 80%;
-          grid-template-rows: 1fr 1fr;
-          grid-gap: 0px var(--space2); }
+          grid-template-columns: 100px 1fr;
+          grid-template-rows: auto auto;
+          grid-gap: 4px var(--space2); }
           #mv .inner .schedule_wrap .info .day_wrap .day_num {
             grid-column-start: 1;
             grid-row-start: 1;
-            grid-row-end: 3; }
+            grid-row-end: 3;
+            align-self: center; }
           #mv .inner .schedule_wrap .info .day_wrap .theme {
             grid-column-start: 2;
-            grid-row-start: 1; }
+            grid-row-start: 1;
+            font-size: 2.25rem; }
           #mv .inner .schedule_wrap .info .day_wrap .place {
             grid-column-start: 2;
-            grid-row-start: 2; }
+            grid-row-start: 2;
+            font-size: var(--fontSize_l); }
     #mv .scroll_down {
       position: absolute;
       right: calc( -1 * var(--w) / 2 );
