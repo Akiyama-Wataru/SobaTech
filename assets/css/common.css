@@ -1468,26 +1468,26 @@ hr.w100p {
         opacity: 0.5;
         filter: Alpha(opacity=50); } }
   .btns.sns {
-    grid-gap: var(--space1) var(--space3);
-    --iconDefaultSize:20px;
+    grid-gap: var(--space1) var(--space2);
+    --iconDefaultSize:32px;
     --iconRatio:1/1; }
     .btns.sns .btn .icon {
       width: var(--iconDefaultSize);
       aspect-ratio: var(--iconRatio);
       height: auto; }
     .btns.sns .btn.btn_facebook {
-      --iconDefaultSize:19px;
-      --iconRatio:19/36; }
+      /*--iconDefaultSize:19px;
+      --iconRatio:19/36;*/ }
       .btns.sns .btn.btn_facebook .icon {
         background-image: url("../images/common/icon_facebook.png"); }
     .btns.sns .btn.btn_x {
-      --iconDefaultSize:25px;
-      --iconRatio:25/26; }
+      /*--iconDefaultSize:25px;
+      --iconRatio:25/26;*/ }
       .btns.sns .btn.btn_x .icon {
         background-image: url("../images/common/icon_x.png"); }
     .btns.sns .btn.btn_instagram {
-      --iconDefaultSize:29px;
-      --iconRatio:29/29; }
+      /*--iconDefaultSize:29px;
+      --iconRatio:29/29;*/ }
       .btns.sns .btn.btn_instagram .icon {
         background-image: url("../images/common/icon_instagram.png"); }
 
@@ -2803,7 +2803,7 @@ details.faq[open] > summary {
       #head .to_link .a {
         min-width: 160px; }
         #head .to_link .a .txt {
-          font-size: var(--fontSize_s); } }
+          font-size: var(--fontSize_ss); } }
   @media (max-width: 767px) {
     #head nav {
       display: none; } }
@@ -3002,7 +3002,7 @@ details.faq[open] > summary {
       grid-gap: var(--space2);
       align-items: center; }
   #foot .sns {
-    grid-gap: var(--space4); }
+    grid-gap: var(--space3); }
   #foot nav .btns {
     grid-gap: var(--space2); }
     #foot nav .btns .btn .a {
@@ -3028,7 +3028,6 @@ details.faq[open] > summary {
       align-items: flex-end;
       justify-content: space-between; }
       #foot .box_wrap .foot_inner.foot_inner_left {
-        align-items: flex-start;
         grid-gap: var(--space4); } }
 
 #floating_btns {

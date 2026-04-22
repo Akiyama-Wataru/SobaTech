@@ -258,6 +258,10 @@ body:not(.scrolled) #head .logo_wrap .logo {
       padding: var(--space2);
       background: #FFF;
       height: 100%; }
+      #program .columns.archives_program .column .inner.with_to_link {
+        justify-content: space-between; }
+        #program .columns.archives_program .column .inner.with_to_link .to_link {
+          margin-top: auto !important; }
     #program .columns.archives_program .column .info .title {
       display: flex;
       align-items: center;
@@ -273,6 +277,21 @@ body:not(.scrolled) #head .logo_wrap .logo {
       font-optical-sizing: auto;
       font-weight: 800;
       font-style: normal; }
+  #program .sub_block_timetable {
+    margin-top: var(--space5);
+    margin-bottom: var(--space5); }
+    #program .sub_block_timetable .head {
+      margin-bottom: var(--space4); }
+      #program .sub_block_timetable .head .title_wrap {
+        flex-direction: column;
+        align-items: center;
+        grid-gap: 0px; }
+        #program .sub_block_timetable .head .title_wrap > * {
+          line-height: normal !important; }
+    #program .sub_block_timetable .body .illust {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto; }
   #program .sub_block_place .head {
     display: flex;
     justify-content: flex-start;
@@ -286,6 +305,9 @@ body:not(.scrolled) #head .logo_wrap .logo {
       border-radius: 0px 0px var(--radius) 0px; }
   #program .sub_block_place .body .columns .column .inner .info {
     align-items: center; }
+  @media (max-width: 767px) {
+    #program .block_program .head .title_wrap .info .place .to_link + .to_link {
+      margin-top: 5px; } }
   @media (min-width: 768px) {
     #program .columns.archives_program .column .inner {
       padding: var(--space3); }
@@ -296,7 +318,10 @@ body:not(.scrolled) #head .logo_wrap .logo {
       justify-content: flex-start;
       grid-gap: 5px var(--space2);
       flex-wrap: wrap;
-      align-items: center; } }
+      align-items: center; }
+    #program .sub_block_timetable {
+      margin-top: calc( var(--space5) * 1.5 );
+      margin-bottom: calc( var(--space5) * 1.5 ); } }
   @media (min-width: 1280px) {
     #program .columns.archives_program {
       --columnRowGap:calc( var(--space3) * 2 );
@@ -444,25 +469,7 @@ body:not(.scrolled) #head .logo_wrap .logo {
       .modal .list_wrap.list_info_wrap .list .inner .label {
         line-height: 1.66; } }
 
-.modal[key^="layout_"] .modal_inner_wrap {
-  max-width: min(1100px, calc(100vw - var(--space2) * 2));
-  max-height: calc(100dvh - var(--space2) * 2); }
-  @media (min-width: 768px) {
-    .modal[key^="layout_"] .modal_inner_wrap {
-      max-width: min(1100px, calc(100vw - var(--space4) * 2));
-      max-height: calc(100dvh - var(--space4) * 2); } }
-
-.modal .layout_image {
-  display: block;
-  width: 100%;
-  text-align: center;
-  background: #f4f6f8; }
-  .modal .layout_image img {
-    display: block;
-    width: auto;
-    max-width: 100%;
-    height: auto;
-    max-height: calc(100dvh - 260px);
-    object-fit: contain;
-    margin: 0 auto; }
-
+@media (max-width: 767px) {
+  .profile_columns {
+    flex-direction: column-reverse;
+    margin-bottom: var(--space4); } }
