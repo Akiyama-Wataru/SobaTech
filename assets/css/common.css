@@ -3222,3 +3222,98 @@ body.scrolled #head {
   @media (min-width: 1280px) {
     #foot .box_wrap {
       justify-content: center; } }
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  @page {
+    margin: 10mm; }
+
+  /* Reset body/html so content can paginate */
+  html, body {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    background: #FFF !important; }
+
+  /* Hide fixed-position UI chrome that blocks pages */
+  #loading,
+  #hamburger,
+  #navi_wrap,
+  #floating_btns,
+  #float_navi {
+    display: none !important; }
+
+  /* Release fixed header so subsequent pages render */
+  #head {
+    position: static !important;
+    background: transparent !important;
+    height: auto !important; }
+
+  #contents {
+    padding-top: 0 !important;
+    min-height: 0 !important; }
+
+  /* Force scroll-triggered animations to visible end state */
+  .animate,
+  .animate:not(.active),
+  .effect,
+  .effect:not(.active),
+  .over_fv,
+  .over_fv:not(.active) {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    transition: none !important; }
+
+  /* ---- When a modal is open, print ONLY the modal ---- */
+  body:has(.modal.active) #head,
+  body:has(.modal.active) #foot,
+  body:has(.modal.active) #contents > *:not(.modal),
+  body:has(.modal.active) .modal:not(.active) {
+    display: none !important; }
+
+  /* Active modal: flow into the page normally */
+  .modal.active {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: none !important;
+    max-height: none !important;
+    display: block !important;
+    overflow: visible !important;
+    transition: none !important; }
+
+  .modal.active .modal_black {
+    display: none !important; }
+
+  .modal.active .modal_inner_wrap {
+    position: static !important;
+    width: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    border-radius: 0 !important; }
+
+  .modal.active .modal_inner_wrap .modal_inner {
+    overflow: visible !important;
+    height: auto !important; }
+
+  .modal.active .modal_head,
+  .modal.active .modal_foot {
+    position: static !important; }
+
+  .modal.active .btn_close {
+    display: none !important; }
+
+  /* Keep images/blocks from splitting awkwardly across pages */
+  .modal.active .block,
+  .modal.active picture,
+  .modal.active .photo {
+    break-inside: avoid;
+    page-break-inside: avoid; }
+}
