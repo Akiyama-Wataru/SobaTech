@@ -521,3 +521,24 @@ body:not(.scrolled) #head .logo_wrap .logo {
   .profile_columns {
     flex-direction: column-reverse;
     margin-bottom: var(--space4); } }
+
+/* ===== REPORT (endroll movie) ===== */
+#report .movie_wrap {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto; }
+#report .movie_frame {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 10px 30px rgba(32, 68, 16, 0.15); }
+#report .movie_frame iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0; }

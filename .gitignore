@@ -1,1 +1,5 @@
 .DS_Store
+
+# Source delivery video (hosted on YouTube, not served from repo)
+ENDROLL_納品版.mp4
+*.mp4
