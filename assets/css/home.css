@@ -561,64 +561,14 @@ body:not(.scrolled) #head .logo_wrap .logo {
   height: 2px;
   margin: 12px auto 0;
   background: var(--secondaryColor, #6CB149); }
-#archive .archive_tabs {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 0 0 30px; }
-#archive .archive_tab {
-  cursor: pointer;
-  appearance: none;
-  border: 1.5px solid var(--secondaryColor, #6CB149);
-  background: transparent;
-  color: var(--primaryColor);
-  font-family: "Montserrat", "Noto Sans JP", sans-serif;
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 1;
-  padding: 11px 22px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  transition: background .2s, color .2s; }
-#archive .archive_tab .d {
-  font-weight: 800;
-  letter-spacing: .04em; }
-#archive .archive_tab .dd {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  line-height: 1.2;
-  white-space: nowrap; }
-#archive .archive_tab .dd .dt {
-  font-size: 12px;
-  font-weight: 700; }
-#archive .archive_tab .dd .pl {
-  font-size: 11px;
-  font-weight: 600; }
-#archive .archive_tab .cnt {
-  font-size: 11px;
-  font-weight: 700;
-  background: #e3efd9;
-  color: #4f7a32;
-  border-radius: 999px;
-  padding: 2px 9px; }
-#archive .archive_tab:hover {
-  background: #eef6e6; }
-#archive .archive_tab.active {
-  background: var(--primaryColor);
-  color: #fff;
-  border-color: var(--primaryColor); }
-#archive .archive_tab.active .cnt {
-  background: rgba(255, 255, 255, 0.18);
-  color: #dff0cf; }
 #archive .archive_grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 26px 22px; }
 #archive .archive_grid[hidden] {
   display: none; }
+#archive .archive_grid.archive_grid_2 {
+  grid-template-columns: repeat(2, 1fr); }
 #archive .archive_card {
   display: block;
   cursor: pointer;
@@ -762,12 +712,8 @@ body:not(.scrolled) #head .logo_wrap .logo {
 #archive .archive_close::after {
   transform: translate(-50%, -50%) rotate(-45deg); }
 @media (max-width: 767px) {
-  #archive .archive_grid {
+  #archive .archive_grid, #archive .archive_grid.archive_grid_2 {
     grid-template-columns: 1fr;
     gap: 18px; }
-  #archive .archive_tab {
-    padding: 9px 15px;
-    font-size: 13px;
-    gap: 6px; }
   #archive .archive_close {
     top: -40px; } }
