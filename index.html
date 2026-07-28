@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/common.css?20260424a">
-<link rel="stylesheet" href="assets/css/home.css?20260717a">
+<link rel="stylesheet" href="assets/css/home.css?20260728a">
 <link rel="shortcut icon" href="favicon.ico">
 <meta name="format-detection" content="telephone=no">
 <meta property="og:locale" content="ja_JP" />
@@ -138,15 +138,54 @@
 </section>
 <section class="section section_cont pt0" id="archive">
 	<div class="section_body_wrap box_wrap">
-		<p class="archive_lead">1日目・2日目の記録映像はこちら</p>
-		<div class="archive_grid archive_grid_2">
-			<a class="archive_card" href="https://youtu.be/G0mj9J74few" data-id="G0mj9J74few" data-title="SOBATech記録 DAY1" data-sub="DAY1 ／ 4.24 斑尾" target="_blank" rel="noopener">
-				<span class="archive_thumb"><span class="archive_badge">DAY1</span><img src="https://i.ytimg.com/vi/G0mj9J74few/hqdefault.jpg" alt="SOBATech記録 DAY1" loading="lazy"><span class="archive_play"></span></span>
-				<span class="archive_meta"><span class="archive_tag">4.24 斑尾</span><span class="archive_ttl">SOBATech記録 DAY1</span></span>
+		<p class="archive_lead">各セッションのアーカイブはこちら</p>
+		<div class="archive_tabs">
+			<button class="archive_tab active" type="button" data-day="1"><span class="d">DAY1</span><span class="dd"><span class="dt">4.24</span><span class="pl">斑尾</span></span><span class="cnt">3本</span></button>
+			<button class="archive_tab" type="button" data-day="2"><span class="d">DAY2</span><span class="dd"><span class="dt">4.25</span><span class="pl">長野</span></span><span class="cnt">6本</span></button>
+		</div>
+		<div class="archive_grid" data-day="1">
+			<a class="archive_card" href="https://youtu.be/ibb7wolO2bM" data-id="ibb7wolO2bM" data-title="オープニングセレモニー" data-sub="DAY1 ／ Opening" target="_blank" rel="noopener">
+				<span class="archive_thumb"><span class="archive_badge">DAY1</span><img src="https://i.ytimg.com/vi/ibb7wolO2bM/hqdefault.jpg" alt="オープニングセレモニー" loading="lazy"><span class="archive_play"></span></span>
+				<span class="archive_meta"><span class="archive_tag">Opening</span><span class="archive_ttl">オープニングセレモニー</span></span>
 			</a>
-			<a class="archive_card" href="https://youtu.be/nieC1EYuTBI" data-id="nieC1EYuTBI" data-title="SOBATech記録 DAY2" data-sub="DAY2 ／ 4.25 長野" target="_blank" rel="noopener">
-				<span class="archive_thumb"><span class="archive_badge">DAY2</span><img src="https://i.ytimg.com/vi/nieC1EYuTBI/hqdefault.jpg" alt="SOBATech記録 DAY2" loading="lazy"><span class="archive_play"></span></span>
-				<span class="archive_meta"><span class="archive_tag">4.25 長野</span><span class="archive_ttl">SOBATech記録 DAY2</span></span>
+			<!-- Placeholder until the Part1 video is published. To swap in the real video:
+			     1. replace VIDEO_ID in href / data-id / thumbnail src with the YouTube ID
+			     2. remove "archive_card_soon" from the class and add target="_blank" rel="noopener"
+			     3. replace the <span class="archive_soon"> with:
+			        <img src="https://i.ytimg.com/vi/VIDEO_ID/hqdefault.jpg" alt="スタートアップトーク Part1" loading="lazy"><span class="archive_play"></span> -->
+			<a class="archive_card archive_card_soon" href="https://youtu.be/VIDEO_ID" data-id="" data-title="スタートアップトーク Part1" data-sub="DAY1 ／ Talk Session" aria-disabled="true">
+				<span class="archive_thumb"><span class="archive_badge">DAY1</span><span class="archive_soon">近日公開</span></span>
+				<span class="archive_meta"><span class="archive_tag">Talk Session</span><span class="archive_ttl">スタートアップトーク Part1</span></span>
+			</a>
+			<a class="archive_card" href="https://youtu.be/TRaLgsQHmOY" data-id="TRaLgsQHmOY" data-title="スタートアップトーク Part2" data-sub="DAY1 ／ Talk Session" target="_blank" rel="noopener">
+				<span class="archive_thumb"><span class="archive_badge">DAY1</span><img src="https://i.ytimg.com/vi/TRaLgsQHmOY/hqdefault.jpg" alt="スタートアップトーク Part2" loading="lazy"><span class="archive_play"></span></span>
+				<span class="archive_meta"><span class="archive_tag">Talk Session</span><span class="archive_ttl">スタートアップトーク Part2</span></span>
+			</a>
+		</div>
+		<div class="archive_grid" data-day="2" hidden>
+			<a class="archive_card" href="https://youtu.be/NSn3IJrzLR8" data-id="NSn3IJrzLR8" data-title="基調講演" data-sub="DAY2 ／ Keynote" target="_blank" rel="noopener">
+				<span class="archive_thumb"><span class="archive_badge">DAY2</span><img src="https://i.ytimg.com/vi/NSn3IJrzLR8/hqdefault.jpg" alt="基調講演" loading="lazy"><span class="archive_play"></span></span>
+				<span class="archive_meta"><span class="archive_tag">Keynote</span><span class="archive_ttl">基調講演</span></span>
+			</a>
+			<a class="archive_card" href="https://youtu.be/VdZM2QiM6sc" data-id="VdZM2QiM6sc" data-title="セッション① スタートアップエコシステム" data-sub="DAY2 ／ Session 1" target="_blank" rel="noopener">
+				<span class="archive_thumb"><span class="archive_badge">DAY2</span><img src="https://i.ytimg.com/vi/VdZM2QiM6sc/hqdefault.jpg" alt="セッション① スタートアップエコシステム" loading="lazy"><span class="archive_play"></span></span>
+				<span class="archive_meta"><span class="archive_tag">Session 1</span><span class="archive_ttl">セッション① スタートアップエコシステム</span></span>
+			</a>
+			<a class="archive_card" href="https://youtu.be/ypCnl0oY9nM" data-id="ypCnl0oY9nM" data-title="国のスタートアップ支援制度紹介" data-sub="DAY2 ／ Program" target="_blank" rel="noopener">
+				<span class="archive_thumb"><span class="archive_badge">DAY2</span><img src="https://i.ytimg.com/vi/ypCnl0oY9nM/hqdefault.jpg" alt="国のスタートアップ支援制度紹介" loading="lazy"><span class="archive_play"></span></span>
+				<span class="archive_meta"><span class="archive_tag">Program</span><span class="archive_ttl">国のスタートアップ支援制度紹介</span></span>
+			</a>
+			<a class="archive_card" href="https://youtu.be/4_0Wo2edn7k" data-id="4_0Wo2edn7k" data-title="セッション② スタートアップピッチ" data-sub="DAY2 ／ Session 2" target="_blank" rel="noopener">
+				<span class="archive_thumb"><span class="archive_badge">DAY2</span><img src="https://i.ytimg.com/vi/4_0Wo2edn7k/hqdefault.jpg" alt="セッション② スタートアップピッチ" loading="lazy"><span class="archive_play"></span></span>
+				<span class="archive_meta"><span class="archive_tag">Session 2</span><span class="archive_ttl">セッション② スタートアップピッチ</span></span>
+			</a>
+			<a class="archive_card" href="https://youtu.be/fIT_yyHa2_I" data-id="fIT_yyHa2_I" data-title="セッション③ インベスターズプログラム" data-sub="DAY2 ／ Session 3" target="_blank" rel="noopener">
+				<span class="archive_thumb"><span class="archive_badge">DAY2</span><img src="https://i.ytimg.com/vi/fIT_yyHa2_I/hqdefault.jpg" alt="セッション③ インベスターズプログラム" loading="lazy"><span class="archive_play"></span></span>
+				<span class="archive_meta"><span class="archive_tag">Session 3</span><span class="archive_ttl">セッション③ インベスターズプログラム</span></span>
+			</a>
+			<a class="archive_card" href="https://youtu.be/6-AKvrrLizM" data-id="6-AKvrrLizM" data-title="セッション④ 信州の資源を活かす起業と協業による新たな挑戦" data-sub="DAY2 ／ Session 4" target="_blank" rel="noopener">
+				<span class="archive_thumb"><span class="archive_badge">DAY2</span><img src="https://i.ytimg.com/vi/6-AKvrrLizM/hqdefault.jpg" alt="セッション④ 信州の資源を活かす起業と協業による新たな挑戦" loading="lazy"><span class="archive_play"></span></span>
+				<span class="archive_meta"><span class="archive_tag">Session 4</span><span class="archive_ttl">セッション④ 信州の資源を活かす起業と協業による新たな挑戦</span></span>
 			</a>
 		</div>
 	</div>
@@ -1550,6 +1589,15 @@ path="";
 (function(){
 	var sec=document.getElementById('archive');
 	if(!sec)return;
+	var tabs=sec.querySelectorAll('.archive_tab');
+	var grids=sec.querySelectorAll('.archive_grid');
+	tabs.forEach(function(tab){
+		tab.addEventListener('click',function(){
+			var day=tab.getAttribute('data-day');
+			tabs.forEach(function(t){t.classList.toggle('active',t===tab);});
+			grids.forEach(function(g){g.hidden=(g.getAttribute('data-day')!==day);});
+		});
+	});
 	var modal=document.getElementById('archive_modal');
 	var player=document.getElementById('archive_player');
 	var capT=document.getElementById('archive_cap_t');
@@ -1571,7 +1619,9 @@ path="";
 	sec.querySelectorAll('.archive_card').forEach(function(card){
 		card.addEventListener('click',function(e){
 			e.preventDefault();
-			openModal(card.getAttribute('data-id'),card.getAttribute('data-title'),card.getAttribute('data-sub'));
+			var id=card.getAttribute('data-id');
+			if(!id)return;
+			openModal(id,card.getAttribute('data-title'),card.getAttribute('data-sub'));
 		});
 	});
 	modal.querySelectorAll('[data-close]').forEach(function(el){el.addEventListener('click',closeModal);});
